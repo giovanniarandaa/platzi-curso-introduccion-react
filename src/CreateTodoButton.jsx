@@ -1,7 +1,15 @@
 import React from 'react'
+import './CreateTodoButton.css'
 
 export const CreateTodoButton = () => {
+  
+  const onClickButton = () => {
+
+  }
+
   return (
-    <button>+</button>
+    <button 
+    onClick={onClickButton}
+    className="CreateTodoButton">+</button>
   )
 }
