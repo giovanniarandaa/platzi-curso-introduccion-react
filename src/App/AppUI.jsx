@@ -6,6 +6,8 @@ import {TodoItem} from "../TodoItem";
 import {CreateTodoButton} from "../CreateTodoButton";
 
 export const AppUI = ({
+  error,
+  loading,
   searchedTodos,
   totalTodos,
   completedTodos,
@@ -19,6 +21,10 @@ export const AppUI = ({
       <TodoCounter total={totalTodos} completed={completedTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
+        {error && <p>Desespérate, hubo un error...</p>}
+        {loading && <p>Estamos cargando, no desesperes...</p>}
+        {(!loading && !searchedTodos.length) && <p>¡Crear tu primer TODO!</p>}
+
         {searchedTodos.map((todo) => (
           <TodoItem
             onComplete={() => completeTodo(todo.text)}
